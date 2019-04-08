@@ -1,0 +1,3 @@
+[submodule "components/remote_log"]
+	path = components/remote_log
+	url = git@github.com:huming2207/esp-remote-log.git
