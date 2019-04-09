@@ -19,6 +19,8 @@
 #include "lwip/err.h"
 #include "lwip/sys.h"
 
+#include <remote_log.h>
+
 /* The examples use WiFi configuration that you can set via 'make menuconfig'.
 
    If you'd rather not, just change the below entries to strings with
@@ -105,4 +107,17 @@ void app_main()
     
     ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
     wifi_init_sta();
+
+    // Wait until WiFi connected
+    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
+
+    // Initialise the remote debugger
+    remote_log_init();
+
+    // Print some stuff
+    for(;;) {
+        ESP_LOGI(TAG, "Yeeeeeeeeeet");
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+
 }

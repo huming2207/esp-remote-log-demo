@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := wifi_station
+PROJECT_NAME := remote-log-demo
 
 include $(IDF_PATH)/make/project.mk
 
